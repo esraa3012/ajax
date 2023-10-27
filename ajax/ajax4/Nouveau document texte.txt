@@ -1,0 +1,3 @@
+Ajouter un bouton "Mettre à jour" à côté du bouton supprimer. 
+Lorsque l'on clique dessus,
+ les données se chargent dans le formulaire au dessus de la liste.

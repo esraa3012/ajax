@@ -1,0 +1,5 @@
+Sur la même page que le défi précédent, 
+afficher la liste de tous les clients (uniquement le nom).
+ A côté de chaque nom, afficher un bouton supprimer. 
+Au clic sur le bouton supprimer, 
+supprimer le client de la base et de la liste.

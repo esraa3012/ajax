@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Défi PHP Ajax</title>
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <form id="add-form" style="display:flex; flex-direction:column; width:400px; margin:auto; align-content:center;" novalidate>
+        <label for="nom">Nom</label>
+        <input type="text" name="nom" id="nom">
+        <label for="prenom">Prénom</label>
+        <input type="text" name="prenom" id="prenom">
+        <label for="adresse">Adresse</label>
+        <input type="text" name="adresse" id="adresse">
+        <label for="date_naissance">Date de naissance</label>
+        <input type="date" name="date_naissance" id="date_naissance">
+        <input type="submit" value="Envoyer">
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    Liste des clients
+                </td>
+            </tr>
+            <tr id="title">
+                <th>
+                    Nom
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <template id="productrow">
+        <tr class="rows">
+            <td class="0"></td>
+            <td class="d">
+                <button class="showMore">Voir plus</button>
+                <button class="clientSup">Supprimer</button>
+                <button class="update">Update</button>
+                <!-- <input type="hidden" id="update" name="update" value="0"> -->
+            </td>
+        </tr>
+    </template>
+</body>
+</html>

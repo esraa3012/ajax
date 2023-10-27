@@ -1,0 +1,11 @@
+html
+<!-- ***bouton modifier** -->
+        <input type="hidden" id="update" name="update" value="0">
+js
+buttonModifier.addEventListener('click', function () {
+                 //changer la valeur du bouton modifier
+                let update = document.getElementById('update');
+                let envoyer = document.getElementById('button');
+                update.value = 1;
+                envoyer.textContent = 'Modifier';
+                console.log(update);

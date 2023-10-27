@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="images/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta  name="description" content="Admin Page, Baume-les-Messieurs, IE=edge, Email" >
+    <link rel="stylesheet" href="style.css" />
+    <script src='main.js' defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section id="main">
+        <div id="color">
+            <form id="form">
+                <div>
+                    <label for="fname">First name :</label>
+                    <input type="text" id="fname" name="fname" class="input" required>
+                    <span id="error_fname"></span>
+                </div>
+                <div>
+                    <label for="lname">Last name :</label>
+                    <input type="text" id="lname" name="lname" class="input" required>
+                    <span id="error_lname"></span>
+                </div>
+                <div>
+                    <label for="adresse">adresse :</label>
+                    <input type="text" id="adresse" name="adresse" class="input" required>
+                    <span id="error_adresse"></span>
+                </div>
+                <div>
+                    
+                    <input type="date" id="date" name="date" class="input" required>
+                    <span id="error_date"></span>
+                </div>
+                <div>
+                    <input type="hidden" id="compteur" name="compteur" value="0">
+                </div>
+                <div>
+                    <label for="submit" id="label_submit">Valider :</label>
+                    <input type="submit" id="submit" name="submit" value="Valider">
+                    <span id="validate"></span>
+                </div>
+            </form>
+        </div>
+        <table>
+            <thead>
+                <tr id="head">
+                    <th class="th_main" id="nom">nom</th>
+                    <th class="th_main" id="prenom">prenom</th>
+                    <th class="th_main" id="option">Option</th>
+                    <th class="th_main" id="adresse">adresse</th>
+                    <th class="th_main" id="date">date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- /* insertion du php */ -->
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

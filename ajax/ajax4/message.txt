@@ -1,0 +1,144 @@
+const formulaire = document.querySelector("form");
+
+formulaire.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(formulaire);
+
+  fetch("defis.php", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => {
+      //réponse du serveur,si la requete s'est bien passé
+      return response.json();
+    })
+    .then((data) => {
+      formulaire.reset();
+    });
+});
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  onload("defis2.php");
+});
+
+function onload(php) {
+  const load = new FormData();
+  load.append("value", "nom");
+  fetch(php, {
+    method: "POST",
+    body: load,
+  })
+    .then((liste) => {
+      //réponse du serveur,si la requete s'est bien passé
+      return liste.json();
+    })
+    .then((data) => {
+      for (let i = 0; i < data.length; i++) {
+        const tbody = document.querySelector("tbody");
+        let template = document.querySelector("#list");
+        let clone = document.importNode(template.content, true);
+        let td = clone.querySelectorAll("td");
+        let btn = clone.querySelectorAll(".btn");
+        btn[0].setAttribute("data-value", `${i}`);
+        td[0].textContent = `${data[i].nom}`;
+        td[4].setAttribute("data-value", `${data[i].id}`);
+        td[6].setAttribute("data-value",`${data[i].id}` );
+        tbody.appendChild(clone);
+     
+
+        btn.forEach((element) => {
+          element.addEventListener("click", () => {
+            fetch("defis3.php", {
+              method: "POST",
+              body: load,
+            })
+              .then((liste) => {
+                //réponse du serveur,si la requete s'est bien passé
+                return liste.json();
+              })
+              .then((data) => {
+                const thead= document.querySelector('thead')
+                const lignes =document.querySelectorAll('lignes');
+               let th0= document.createElement('th');
+               let th1= document.createElement('th');
+               let th2= document.createElement('th');
+               let th3= document.createElement('th');
+               thTitre = document.createTextNode('nom');
+               thTitre1 = document.createTextNode('prenom');
+               thTitre2 = document.createTextNode('adresse');
+               thTitre3 = document.createTextNode('date');
+               th0.append(thTitre)
+               th1.append(thTitre1)
+               th2.append(thTitre2)
+               th3.append(thTitre3)
+                let valueClick = element.dataset.value;
+                 thead.replaceChildren(th0)
+                 thead.append(th1)
+                 thead.append(th2)
+                 thead.append(th3)                                                                                        
+                td[1].textContent = `${data[valueClick].prenom}`;
+                td[2].textContent = `${data[valueClick].adresse}`;
+                td[3].textContent = `${data[valueClick].date_naissance}`;
+              });
+          });
+        });
+      }
+      const modif = document.querySelectorAll('.modify');
+
+      modif.forEach(element => {
+        element.addEventListener('click', (e) => {
+          let dataId = e.target.parentElement.dataset.value;
+         let load = new FormData();
+         load.append("value",dataId)
+          fetch("defis3.php", {
+            method: "POST",
+            body: load,
+          }).then((liste) => {
+           
+            return liste.json();
+          }).then((data) => {
+           
+            console.log(data);
+             data.forEach(element => {
+              if (element.id === dataId){
+                document.getElementById("nom").value = element.nom;
+                document.getElementById("prenom").value = element.prenom;
+                document.getElementById("adresse").value = element.adresse;
+                document.getElementById("date_naissance").value = element.date_naissance;
+              }
+
+             });
+
+          })
+        })
+      });
+      let boutton = document.querySelectorAll(".suppr");
+      suppr(boutton);
+    });
+}
+
+
+function suppr(elements) {
+  elements.forEach((elem) => {
+    elem.addEventListener("click", (e) => {
+      const elementClicked = e.target.parentElement.dataset.value;
+      console.log(elementClicked);
+
+      fetch(`defis4.php?id=${elementClicked}`, {
+        method: "GET",
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data[0]);
+          if(data[0]===true){
+            node =elem.parentNode;
+            node.parentNode.remove();
+          }
+        });
+    });
+  });
+}
+
+

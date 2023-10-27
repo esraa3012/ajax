@@ -1,0 +1,2 @@
+Sur la même page que le défi précédent, afficher la liste de tous les clients (uniquement le nom). A côté de chaque nom, afficher un bouton voir plus.
+Au clique du bouton voir plus, afficher l'adresse et la date de naissance du client en question.

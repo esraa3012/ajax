@@ -1,0 +1,84 @@
+body{
+    margin: 0;
+}
+
+*{
+    font-family: 'Jost';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+    color: #000000;
+}
+
+#main{
+    width: 100vw;
+    height: 100vh;
+    padding: 10% 10%;
+    box-sizing: border-box;
+    margin: 0;
+    display: flex;
+    background-image: url("background.png");
+    gap: 200px;
+}
+
+#color{
+    background-color: #f9f9f9;
+    width: 400px;
+    height: 400px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.481) -10px 10px;
+}
+
+#form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#form > div{
+    display: flex;
+    flex-direction: column;
+}
+
+table{
+    width: 100%;
+}
+
+.th_main{
+    text-align: center;
+    cursor: pointer;
+    background-color: #9c9c9c;
+    color: #e9e9e9;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background-color: #DCDCDC;
+}
+
+tr:nth-child(odd) {
+    background-color: #fbfbfb;
+}
+
+td{
+    text-align: center;
+}
+
+tbody > tr > td:nth-child(0n+2){
+    border: 3px solid #151850;
+    border-width: 0 3px 0 3px;
+    word-break: break-all;
+}
+
+.more{
+    width: 200px;
+    height: 40px;
+}
+
+#compteur{
+    display: none;
+}

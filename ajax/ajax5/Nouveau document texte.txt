@@ -1,0 +1,4 @@
+1) En HTML, dans le formulaire, 
+on ajoute un champ caché qui s'appelle "Update" et qui aura par défaut comme valeur 0.
+2) En Javascript, si l'on clique le bouton sur "Modifier", 
+la valeur du champ "Update" doit passer à 1 et le libellé du bouton "Insérer" doit être changé en "Modifier".
